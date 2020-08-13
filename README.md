@@ -2,8 +2,8 @@
 The Darts Game– Cricket... But in A Ray's house.
 
 # Dependencies
-[Python 3](https://www.python.org/downloads/)
-[Kivy](https://kivy.org/#download)
+- [Python 3](https://www.python.org/downloads/)
+- [Kivy](https://kivy.org/#download)
 
 # Setup
 In a terminal window–
