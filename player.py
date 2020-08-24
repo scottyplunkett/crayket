@@ -4,6 +4,11 @@ class Player():
         self.score = score
         self.targets = targets
 
+    def add_shots_to_target(self, value, amount):
+        for target in self.targets:
+          if target['value'] == value:
+            target['shots'] = target['shots'] + amount
+
     def completed_all_targets(self):
         return all(target['status'] == 'closed' for target in self.targets)
 
