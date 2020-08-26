@@ -14,3 +14,9 @@ class Player():
 
     def has_winning_score(self, scores):
         return all(self.score >= score for score in scores)
+
+    def get_name(self):
+        return self.name
+
+    def representation(self):
+        return self.name + ' ' + str(self.score)

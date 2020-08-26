@@ -3,6 +3,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button, Label
+from kivy.uix.textinput import TextInput
 from kivy.properties import ListProperty, ObjectProperty
 from game import Game
 from player import Player
@@ -41,12 +42,24 @@ class PlayerMenu(BoxLayout):
         self.player_menu_buttons = PlayerMenuButtons()
         self.add_widget(self.player_menu_buttons)
 
+    def on_entered_something(self):
+        self.label.text = f'User entered {self.input.text}'
+        print('User entered', self.input.text)
+        
+
+    def get_player_name(self, player_number):
+        self.input = TextInput(text=f'Enter player {player_number} name', multiline=False)
+        self.add_widget(self.input)
+        self.input.on_text_validate=self.on_entered_something
+
+
     def show_current_players(self):
         app = App.get_running_app()
         self.label.text = 'Current Players:'
         self.remove_widget(self.player_menu_buttons)
         self.current_players_label = Label(text=str(len(app.root.players)))
         self.add_widget(self.current_players_label)
+        self.get_player_name(1)
 
 
 class TurnMenu(BoxLayout):

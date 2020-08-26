@@ -21,5 +21,14 @@ class TestPlayer(unittest.TestCase):
         player = Player('1', 100, stub_finished_targets())
         self.assertTrue(player.has_winning_score([99, 1, 23, 100]))
 
+    def test_player_get_name_returns_name(self):
+        player = Player('Expected Name', 100, stub_finished_targets())
+        self.assertEqual('Expected Name', player.get_name())
+
+    def test_player_representation_returns_a_string_with_name_and_score(self):
+        player = Player('Expected Name', 100, stub_finished_targets())
+        self.assertEqual('Expected Name 100', player.representation()) 
+
+
 if __name__ == '__main__':
     unittest.main()
